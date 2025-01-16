@@ -12,7 +12,7 @@ const cors = Cors({
 function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
-      if (result instanceof "error") {
+      if (result instanceof Error) {
         return reject(result);
       }
       return resolve(result);
@@ -29,6 +29,7 @@ export default async function handler(req, res) {
       const tasks = await Task.find();
       res.status(200).json(tasks);
     } catch (error) {
+      // eslint-disable-next-line no-unused-vars
       res.status(500).json({ error: "Error al obtener las tareas" });
     }
   } else {
