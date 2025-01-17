@@ -5,7 +5,7 @@ import Task from "../../models/Task";
 // Configuración de CORS
 const cors = Cors({
   methods: ["GET", "POST"], // Permite GET y POST
-  origin: "*",
+  origin: ["https://todolistreactbios.netlify.app"],
 });
 
 // Helper para ejecutar middlewares
