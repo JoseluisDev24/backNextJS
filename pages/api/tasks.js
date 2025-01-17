@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       const tasks = await Task.find();
       res.status(200).json(tasks);
     } catch (error) {
-      // eslint-disable-next-line no-unused-vars
+      console.error("Error:", error);
       res.status(500).json({ error: "Error al obtener las tareas" });
     }
   } else {
