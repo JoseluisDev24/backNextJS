@@ -4,8 +4,8 @@ import Task from "../../models/Task";
 
 // Configuración de CORS
 const cors = Cors({
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  origin: "http://localhost:5173", // Cambia según tu dominio
+  methods: ["GET", "POST"], // Permite GET y POST
+  origin: "*"
 });
 
 // Helper para ejecutar middlewares
@@ -26,14 +26,22 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     try {
-      const tasks = await Task.find();
+      const tasks = await Task.find(); // Obtén todas las tareas
       res.status(200).json(tasks);
     } catch (error) {
-      console.error("Error:", error);
       res.status(500).json({ error: "Error al obtener las tareas" });
     }
+  } else if (req.method === "POST") {
+    try {
+      const task = new Task(req.body); // Crea una nueva tarea con los datos del cliente
+      await task.save(); // Guarda la tarea en la base de datos
+      res.status(201).json(task); // Devuelve la tarea creada
+    } catch (error) {
+      res.status(400).json({ error: "Error al crear la tarea" });
+    }
   } else {
-    res.setHeader("Allow", ["GET"]);
+    // Manejo de métodos no soportados
+    res.setHeader("Allow", ["GET", "POST"]);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
