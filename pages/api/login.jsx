@@ -28,7 +28,7 @@ function login() {
             Login
           </Link>
           <Link
-            to="/"
+            href="/"
             className="border border-solid border-slate-600 rounded-lg p-2 cursor-pointer hover:bg-slate-600 text-center"
           >
             Cancel

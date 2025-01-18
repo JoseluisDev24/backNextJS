@@ -14,7 +14,7 @@ const TodoApp = () => {
   return (
     <div className="relative bg-gray-900 min-h-screen h-full text-gray-100 flex items-center justify-center py-20 px-5 font-inter">
       <Link
-        href={`login`}
+        href="/login"
         className="absolute top-3 right-3 w-20 bg-slate-700 rounded-lg p-2 text-white text-center cursor-pointer hover:bg-slate-600"
       >
         Login
