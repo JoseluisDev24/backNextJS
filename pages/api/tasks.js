@@ -5,7 +5,7 @@ import Task from "../../models/Task";
 // Configuración de CORS
 const cors = Cors({
   methods: ["GET", "POST"], // Permite GET y POST
-  origin: ["https://todolistreactbios.netlify.app"],
+  origin: ["https://back-next-js.vercel.app/api/tasks"],
 });
 
 // Helper para ejecutar middlewares
