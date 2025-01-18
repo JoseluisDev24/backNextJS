@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useContextProvider } from "../../ContextProvider/ContextProvider";
+import { useTaskContext } from "../../context/TaskContext";
 
 function editTask() {
-  const { tasks, setTasks } = useContextProvider();
+  const { tasks, setTasks } = useTaskContext();
   return (
     <div className="bg-gray-900 min-h-screen h-full text-gray-100 flex items-center justify-center">
       <div className="flex flex-col items-center justify-center h-96 text-lg gap-3">

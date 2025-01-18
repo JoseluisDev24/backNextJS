@@ -2,9 +2,6 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-
-
-// Crear el contexto
 const TaskContext = createContext();
 
 // Proveedor del contexto
@@ -35,7 +32,7 @@ export function TaskProvider({ children }) {
   );
 }
 
-// Hook personalizado para usar el contexto
+// Custom Hook
 export function useTaskContext() {
   return useContext(TaskContext);
 }
