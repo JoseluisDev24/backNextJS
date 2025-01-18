@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link"
 import { useTaskContext } from "../../context/TaskContext";
 
 
@@ -74,7 +74,7 @@ function TodoItem({ task }) {
         </p>
       </div>
       <div className="flex items-center gap-2">
-        <Link to={`edit-task`}>
+        <Link href={`edit-task`}>
           <img
             className="h-5 w-5 cursor-pointer transition-all duration-300 ease-in"
             src="edit.svg"
