@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useTaskContext } from "../../context/TaskContext";
 
 function editTask() {
@@ -36,7 +36,7 @@ function editTask() {
             Save
           </button>
           <Link
-            to="/"
+            href="/"
             className="border border-solid border-slate-600 rounded-lg p-2 cursor-pointer hover:bg-slate-600 text-center"
           >
             Cancel

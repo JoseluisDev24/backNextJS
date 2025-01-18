@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+
 
 function login() {
   return (
@@ -20,7 +21,7 @@ function login() {
             className="rounded-md h-9 text-sm border-solid border border-black cursor-text text-black px-2"
           />
           <Link
-            to="/"
+            href="/"
             type="submit"
             className="bg-slate-700 rounded-lg p-2 text-white text-center cursor-pointer hover:bg-slate-600"
           >
