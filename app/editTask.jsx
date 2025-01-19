@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { useTaskContext } from "../../context/TaskContext";
+import { useTaskContext } from "../context/TaskContext";
 
 function editTask() {
   const { tasks, setTasks } = useTaskContext();
