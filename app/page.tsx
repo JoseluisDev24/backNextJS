@@ -9,7 +9,8 @@ import Link from "next/link"
 
 
 const TodoApp = () => {
-  const { tasks, setTasks } = useTaskContext();
+  const { tasks } = useTaskContext();
+
 
   return (
     <div className="relative bg-gray-900 min-h-screen h-full text-gray-100 flex items-center justify-center py-20 px-5 font-inter">

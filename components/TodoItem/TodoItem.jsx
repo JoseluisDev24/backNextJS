@@ -73,7 +73,7 @@ function TodoItem({ task }) {
         </p>
       </div>
       <div className="flex items-center gap-2">
-        <Link href={`edit-task`}>
+        <Link href="edit">
           <img
             className="h-5 w-5 cursor-pointer transition-all duration-300 ease-in"
             src="edit.svg"
