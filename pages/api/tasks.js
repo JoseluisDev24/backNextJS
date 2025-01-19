@@ -1,3 +1,4 @@
+"use client"
 import Cors from "cors";
 import dbConnect from "../../utils/dbConnect";
 import Task from "../../models/Task";
@@ -38,7 +39,6 @@ export default async function handler(req, res) {
       res.status(201).json(task);
     } catch (error) {
       res.status(400).json({ error: "Error al crear la tarea" });
-      console.error(error);
     }
   } else {
     res.setHeader("Allow", ["GET", "POST"]);
