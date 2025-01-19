@@ -38,6 +38,7 @@ export default async function handler(req, res) {
       res.status(201).json(task);
     } catch (error) {
       res.status(400).json({ error: "Error al crear la tarea" });
+      console.error(error);
     }
   } else {
     res.setHeader("Allow", ["GET", "POST"]);
