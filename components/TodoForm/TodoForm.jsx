@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useRef } from "react";
 import { useTaskContext } from "../../context/TaskContext";
@@ -22,16 +22,13 @@ function TodoForm() {
 
     async function postData(data) {
       try {
-        const response = await fetch(
-          "https://back-next-js.vercel.app/api/tasks",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          }
-        );
+        const response = await fetch(`https://back-next-js.vercel.app/api/tasks`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
 
         if (response.ok) {
           const createTask = await response.json();

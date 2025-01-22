@@ -18,7 +18,7 @@ const TodoApp = () => {
         href="/login"
         className="absolute top-3 right-3 w-20 bg-slate-700 rounded-lg p-2 text-white text-center cursor-pointer hover:bg-slate-600"
       >
-        Log
+        Login
       </Link>
       <div className="container flex flex-col max-w-xl">
         <Title />

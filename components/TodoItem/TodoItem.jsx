@@ -1,18 +1,20 @@
 "use client";
 import React from "react";
-import Link from "next/link"
+import Link from "next/link";
 import { useTaskContext } from "../../context/TaskContext";
-
 
 function TodoItem({ task }) {
   const { tasks, setTasks } = useTaskContext();
-  const handleDeleteTask = async (id) => {
-    const url = `https://back-next-js.vercel.app/api/tasks/${id}`;
+  const handleDeleteTask = async (_id) => {
     try {
-      const response = await fetch(url, { method: "DELETE" });
+      const response = await fetch(
+        `https://back-next-js.vercel.app/api/${_id}`,
+        { method: "DELETE" }
+      );
 
       if (response.ok) {
-        setTasks((tasks) => tasks.filter((task) => task._id !== id));
+        setTasks((tasks) => tasks.filter((task) => task._id !== _id));
+        console.log("Tareas actualizadas:", updatedTasks);
       } else {
         console.error("Error deleting task:", response.statusText);
       }
@@ -21,8 +23,8 @@ function TodoItem({ task }) {
     }
   };
 
-  const handleSetCompleted = async (id, isCompleted) => {
-    const url = `https://back-next-js.vercel.app/api/tasks/${id}`;
+  const handleSetCompleted = async (_id, isCompleted) => {
+    const url = `https://back-next-js.vercel.app/api/tasks/${_id}`;
 
     try {
       const response = await fetch(url, {
@@ -38,7 +40,7 @@ function TodoItem({ task }) {
 
         setTasks((tasks) =>
           tasks.map((task) =>
-            task._id === id
+            task._id === _id
               ? { ...task, isCompleted: updatedTask.isCompleted }
               : task
           )
@@ -64,7 +66,7 @@ function TodoItem({ task }) {
         ) : (
           <span
             className="border border-solid border-gray-500 rounded-full p-3 cursor-pointer"
-            onClick={() => handleSetCompleted(task._id, task.isCompleted )}
+            onClick={() => handleSetCompleted(task._id, task.isCompleted)}
           ></span>
         )}
 
@@ -73,7 +75,7 @@ function TodoItem({ task }) {
         </p>
       </div>
       <div className="flex items-center gap-2">
-        <Link href="edit">
+        <Link href="/edit">
           <img
             className="h-5 w-5 cursor-pointer transition-all duration-300 ease-in"
             src="edit.svg"
