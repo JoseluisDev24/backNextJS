@@ -8,7 +8,7 @@ function TodoItem({ task }) {
   const handleDeleteTask = async (_id) => {
     try {
       const response = await fetch(
-        `https://back-next-js.vercel.app/api/${_id}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/tasks/${_id}`,
         { method: "DELETE" }
       );
 
@@ -24,7 +24,7 @@ function TodoItem({ task }) {
   };
 
   const handleSetCompleted = async (_id, isCompleted) => {
-    const url = `https://back-next-js.vercel.app/api/tasks/${_id}`;
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/tasks/${_id}`;
 
     try {
       const response = await fetch(url, {

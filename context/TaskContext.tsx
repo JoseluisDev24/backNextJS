@@ -22,7 +22,9 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("/api/tasks");
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/tasks`
+        );
         if (!response.ok) {
           throw new Error(`Error fetching tasks: ${response.status}`);
         }
