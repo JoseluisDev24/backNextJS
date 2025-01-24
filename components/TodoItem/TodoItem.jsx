@@ -14,7 +14,6 @@ function TodoItem({ task }) {
 
       if (response.ok) {
         setTasks((tasks) => tasks.filter((task) => task._id !== _id));
-        console.log("Tareas actualizadas:", updatedTasks);
       } else {
         console.error("Error deleting task:", response.statusText);
       }

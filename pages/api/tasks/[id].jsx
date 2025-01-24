@@ -1,10 +1,12 @@
-import dbConnect from "../../utils/dbConnect";
-import Task from "../../models/Task";
+import Task from "../../../models/Task";
+import dbConnect from "../../../utils/dbConnect";
+
+
 
 export default async function handler(req, res) {
   const { id } = req.query; // Obtiene el ID de la tarea desde los parámetros de la URL.
 
-  await dbConnect(); // Conecta a la base de datos.
+  await dbConnect() // Conecta a la base de datos.
 
   if (req.method === "GET") {
     try {

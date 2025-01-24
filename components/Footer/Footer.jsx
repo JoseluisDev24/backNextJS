@@ -10,7 +10,7 @@ function Footer() {
     try {
       await Promise.all(
         completedTasks.map(async (task) => {
-          const url = `https://back-next-js.vercel.app/api/tasks${task._id}`;
+          const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/tasks/${task._id}`;
           const response = await fetch(url, { method: "DELETE" });
 
           if (!response.ok) {
