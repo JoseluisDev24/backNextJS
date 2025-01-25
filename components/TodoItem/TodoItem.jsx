@@ -68,8 +68,7 @@ function TodoItem({ task }) {
             onClick={() => handleSetCompleted(task._id, task.isCompleted)}
           ></span>
         )}
-
-        <p className={`pl-3 ${task.isCompleted && "line-through"}`}>
+        <p className={`ml-3 max-w-64 md:max-w-96 ${task.isCompleted && "line-through"}`}>
           {task.title}
         </p>
       </div>
