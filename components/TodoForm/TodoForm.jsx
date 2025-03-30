@@ -57,7 +57,7 @@ function TodoForm() {
         <input
           type="text"
           className="shadow-lg font-inter focus:shadow-blue-800 pl-12 w-full py-4 bg-gray-700 rounded-xl outline-none transition-all duration-300 ease-in-out"
-          placeholder="Wat's next..."
+          placeholder="What's next..."
           ref={nameRef}
         />
       </form>

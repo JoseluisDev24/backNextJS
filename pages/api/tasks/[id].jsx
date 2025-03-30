@@ -4,13 +4,12 @@ import dbConnect from "../../../utils/dbConnect";
 
 
 export default async function handler(req, res) {
-  const { id } = req.query; // Obtiene el ID de la tarea desde los parámetros de la URL.
-
-  await dbConnect() // Conecta a la base de datos.
+  const { id } = req.query; 
+  await dbConnect() 
 
   if (req.method === "GET") {
     try {
-      const task = await Task.findById(id); // Busca la tarea por _id.
+      const task = await Task.findById(id); 
       if (!task) {
         return res.status(404).json({ error: "Tarea no encontrada" });
       }
@@ -21,7 +20,7 @@ export default async function handler(req, res) {
   } else if (req.method === "PATCH") {
     try {
       const updatedTask = await Task.findByIdAndUpdate(id, req.body, {
-        new: true, // Devuelve el documento actualizado.
+        new: true, 
       });
       if (!updatedTask) {
         return res.status(404).json({ error: "Tarea no encontrada" });
@@ -32,7 +31,7 @@ export default async function handler(req, res) {
     }
   } else if (req.method === "DELETE") {
     try {
-      const deletedTask = await Task.findByIdAndDelete(id); // Elimina la tarea por _id.
+      const deletedTask = await Task.findByIdAndDelete(id);
       if (!deletedTask) {
         return res.status(404).json({ error: "Tarea no encontrada" });
       }
